@@ -77,7 +77,7 @@ jobs:
     - if: matrix.language == 'java' 
       name: Build Java
       run: |
-        ls
+        ls -a
         mvn -version
         mvn compile
 
