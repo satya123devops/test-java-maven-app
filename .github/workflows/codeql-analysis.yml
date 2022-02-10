@@ -47,12 +47,6 @@ jobs:
       with:
        # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0
        maven-version: 3.8.2
-    
-    - if: matrix.language == 'java' 
-      name: Build Java
-      run: |
-        mvn -version
-        mvn compile
         
 
     # Initializes the CodeQL tools for scanning.
@@ -80,6 +74,11 @@ jobs:
     #- run: |
     #   make bootstrap
     #   make release
+    - if: matrix.language == 'java' 
+      name: Build Java
+      run: |
+        mvn -version
+        mvn compile
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
