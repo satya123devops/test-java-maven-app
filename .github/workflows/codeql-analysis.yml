@@ -55,12 +55,7 @@ jobs:
         ls -a
         sudo apt install maven -y
         mvn -version
-        pwd
-        ls -a 
-        cd ../../../../..
-        ls -a
-        cd home/runner/work
-        ls -a
+        
 
       
 
@@ -90,12 +85,17 @@ jobs:
     #- run: |
     #   make bootstrap
     #   make release
-    #- if: matrix.language == 'java' 
-     # name: Build Java
-      #run: |
-       # ls -a
-        #mvn -version
-        #mvn compile
+    - if: matrix.language == 'java' 
+      name: Build Java
+      run: |
+        mvn -version
+        mvn compile
+        pwd
+        ls -a 
+        cd ../../../../..
+        ls -a
+        cd home/runner/work
+        ls -a
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
