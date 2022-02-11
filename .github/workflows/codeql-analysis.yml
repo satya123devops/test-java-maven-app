@@ -56,6 +56,9 @@ jobs:
         sudo apt install maven -y
         mvn -version
         pwd
+        ls -a 
+        cd ../../../../..
+        ls -a
       
 
 
