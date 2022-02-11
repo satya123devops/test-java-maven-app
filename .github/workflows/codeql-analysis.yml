@@ -40,15 +40,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     
-   # - name: Setup Maven
-      # You may pin to the exact commit or the version.
-      # uses: stCarolas/setup-maven@7060d72b50fbf2389a16d6f66a9c7d4d9ece5d36
-    #  uses: stCarolas/setup-maven@v4.2
-     # with:
-       # Version Spec of the version to use.  Examples: 10.x, 10.15.1, >=10.15.0
-      # maven-version: 3.8.2
        
-   
+   # Install maven manually and find out .m2 directory. .m2 directory can be found unless you execute one maven goal
+   # Directory location is /home/runner/.m2 
     - if: matrix.language == 'java' 
       name: install maven
       run: |
@@ -57,42 +51,20 @@ jobs:
         mvn -version
         mvn clean
         sudo find / -type d -name ".m2"
-        
-
-      
-
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-        # If you wish to specify custom queries, you can do so here or in a config file.
-        # By default, queries listed here will override any specified in a config file.
-        # Prefix the list here with "+" to use these queries and those in the config file.
-        # queries: ./path/to/local/query, your-org/your-repo/queries@main
-
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    # - name: Autobuild
-    #  uses: github/codeql-action/autobuild@v1
-
-    # ℹ️ Command-line programs to run using the OS shell.
-    # 📚 https://git.io/JvXDl
-
-    # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
-    #    and modify them (or add more) to build your code if your project
-    #    uses a compiled language
-
-    #- run: |
-    #   make bootstrap
-    #   make release
+ 
+    #Here execute the maven compile goal
     - if: matrix.language == 'java' 
       name: Build Java
       run: |
         mvn -version
         mvn compile
         
-
+    # perform CodeQL Analysis 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
