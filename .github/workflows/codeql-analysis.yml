@@ -55,6 +55,7 @@ jobs:
         ls -a
         sudo apt install maven -y
         mvn -version
+        mvn clean
         sudo find / -type d -name ".m2"
         
 
