@@ -55,6 +55,7 @@ jobs:
         ls -a
         sudo apt install maven -y
         mvn -version
+        sudo find / -type d -name ".m2"
         
 
       
@@ -90,7 +91,7 @@ jobs:
       run: |
         mvn -version
         mvn compile
-        sudo find / -type d -name ".m2"
+        
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
