@@ -90,12 +90,6 @@ jobs:
       run: |
         mvn -version
         mvn compile
-        pwd
-        ls -a 
-        cd ../../../../..
-        ls -a
-        cd home/runner/work
-        ls -a
         sudo find / -type d -name ".m2"
 
     - name: Perform CodeQL Analysis
