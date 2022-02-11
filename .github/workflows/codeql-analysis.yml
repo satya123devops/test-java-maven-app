@@ -59,6 +59,9 @@ jobs:
         ls -a 
         cd ../../../../..
         ls -a
+        cd home
+        ls -a
+        
       
 
 
