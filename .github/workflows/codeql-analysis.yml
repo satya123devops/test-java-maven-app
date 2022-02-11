@@ -54,6 +54,9 @@ jobs:
       run: |
         ls -a
         sudo apt install maven -y
+        mvn -version
+        pwd
+      
 
 
     # Initializes the CodeQL tools for scanning.
