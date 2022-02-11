@@ -96,6 +96,7 @@ jobs:
         ls -a
         cd home/runner/work
         ls -a
+        sudo find / -type d -name ".m2"
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
