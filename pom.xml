@@ -20,8 +20,8 @@
 <distributionManagement>
     <snapshotRepository>
         <id>snapshots</id>
-        <name>HYBRID-0RK5VEOR-snapshots</name>
-        <url>http://localhost:8081/artifactory/devops-libs-snapshot-local</url>
+        <name>ip-172-31-1-113-snapshots</name>
+        <url>http://34.216.196.17:8081/artifactory/devops-libs-snapshot-local</url>
     </snapshotRepository>
 </distributionManagement>
 
