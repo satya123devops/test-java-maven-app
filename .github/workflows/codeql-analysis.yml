@@ -61,7 +61,7 @@ jobs:
     - if: matrix.language == 'java' 
       name: Build Java
       run: |
-        curl -u admin:AP6PUXTXS1C6EUk1DrZzttC7fXW -X GET "http://34.216.196.17:8082/artifactory/example-repo-local/settings.xml" > settings.xml
+        curl -u ${{ secrets.JFROG_USER }}:${{ secrets.JFROG_SECRET_TOKEN }} -X GET "http://34.216.196.17:8082/artifactory/example-repo-local/settings.xml" > settings.xml
         mvn -version
         mvn -s settings.xml compile
         
