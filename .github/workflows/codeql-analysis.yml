@@ -46,11 +46,10 @@ jobs:
     - if: matrix.language == 'java' 
       name: install maven
       run: |
-        ls -a
         sudo apt install maven -y
-        mvn -version
-        mvn clean
-        sudo find / -type d -name ".m2"
+        #mvn -version
+        #mvn clean
+        #sudo find / -type d -name ".m2"
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -62,8 +61,9 @@ jobs:
     - if: matrix.language == 'java' 
       name: Build Java
       run: |
+        curl -u admin:AP69gVvvUo1UTY2M87RnK6Q8LZy -X GET "http://localhost:8082/artifactory/example-repo-local/settings.xml" > settings.xml
         mvn -version
-        mvn compile
+        mvn -s settings.xml compile
         
     # perform CodeQL Analysis 
     - name: Perform CodeQL Analysis
