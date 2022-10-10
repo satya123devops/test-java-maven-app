@@ -29,7 +29,7 @@ public class AppTest
         }
     }
 
-    @Test
+    @Ignore
     public void testAppMain()
     {
         App.main(null);
