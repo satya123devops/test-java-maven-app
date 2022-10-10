@@ -64,6 +64,7 @@ jobs:
       name: Build Java
       run: |
         mvn install
+        mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
         
     # perform CodeQL Analysis 
     - name: Perform CodeQL Analysis
