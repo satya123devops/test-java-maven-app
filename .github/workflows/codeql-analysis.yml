@@ -61,16 +61,17 @@ jobs:
     - if: matrix.language == 'java' 
       name: Build Java
       run: |
-        curl -u ${{ secrets.JFROG_USER }}:${{ secrets.JFROG_SECRET_TOKEN }} -X GET "http://34.216.196.17:8082/artifactory/example-repo-local/settings.xml" > settings.xml
-        mvn -version
-        mvn -s settings.xml compile
+        #curl -u ${{ secrets.JFROG_USER }}:${{ secrets.JFROG_SECRET_TOKEN }} -X GET "http://34.216.196.17:8082/artifactory/example-repo-local/settings.xml" > settings.xml
+        #mvn -version
+        #mvn -s settings.xml compile
+        mvn install
         
     # perform CodeQL Analysis 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
 
-    - name: Deploy Maven artifacts
-      run: |
-        ls 
-        mvn -s settings.xml deploy
+    #- name: Deploy Maven artifacts
+    #  run: |
+    #    ls 
+    #    mvn -s settings.xml deploy
       
