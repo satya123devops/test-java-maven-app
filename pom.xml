@@ -23,14 +23,14 @@
   </dependencies>
 
  
-<distributionManagement>
+<!-- <distributionManagement>
     <snapshotRepository>
         <id>snapshots</id>
         <name>devops-libs-snapshot</name>
         <url>http://34.216.196.17:8081/artifactory/devops-libs-snapshot-local</url>
     </snapshotRepository>
 </distributionManagement>
-
+ -->
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
